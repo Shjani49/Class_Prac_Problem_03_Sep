@@ -19,6 +19,22 @@ namespace CSharpOOP
             // Task:
             // Add a play games method that will decrease energy by 15.
 
+            /* Group Task:
+             
+            Add an inaccessible stress level variable, initialized at 0. 
+	            -When homework is done, increase stress by 30. 
+	            -When sleep is done, decrease stress by 50 (or 5 per hour).
+	            -When games are done, decrease stress by 25.
+	            -Add a floor to stress level of 0 (similar to ceiling on energy).
+
+            Add a query method for stress level and that will output a string based on its level.
+
+            Throw an exception if stress tries to go over 100.
+
+
+
+            */
+
             Student myStudent = new Student();
             Student twoStudent = new Student("Bob", "Jones");
             myStudent.FirstName = "Jane";
@@ -27,7 +43,7 @@ namespace CSharpOOP
 
             Console.WriteLine(twoStudent.StudentID + ": " + twoStudent.FirstName + " " + twoStudent.LastName);
 
-
+            Console.WriteLine(myStudent.QueryEnergyLevel());
         }
     }
 }

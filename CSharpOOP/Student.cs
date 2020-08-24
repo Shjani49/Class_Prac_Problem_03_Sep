@@ -121,9 +121,32 @@ namespace CSharpOOP
             EnergyLevel += hours * 10;
         }
 
-        
+        public string QueryEnergyLevel()
+        {
+            string output;
+            if (EnergyLevel > 100)
+            {
+                output = "I'm super well rested and have tons of energy!";
+            }
+            else if (EnergyLevel > 75)
+            {
+                output = "Doing pretty well.";
+            }
+            else if (EnergyLevel > 40)
+            {
+                output = "Starting to get a bit tired.";
+            }
+            else if (EnergyLevel > 10)
+            {
+                output = "Pretty tired. Need rest soon.";
+            }
+            else
+            {
+                output = "Basically a zombie here, why aren't I asleep?";
+            }
 
-
+            return output;
+        }
 
     }
 }
