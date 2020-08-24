@@ -31,7 +31,7 @@ namespace CSharpOOP
 
             Throw an exception if stress tries to go over 100.
 
-
+            If you finish: generate a student in main (you can clear out the stuff below this comment), and simulate 10 days for them. IE do homework and games until they're out of energy, sleep and repeat. I know it's a rather simple existence, but it'll suffice for now.
 
             */
 
