@@ -43,14 +43,44 @@ namespace CSharpOOP
             } 
             set
             {
-                // If the incoming value is over 100, clamp it to 100.
+                // If the incoming value is over 125, clamp it to 125.
                 if (value > 125)
                 {
                     _energyLevel = 125;
                 }
                 else
                 {
+                    if (value < 0)
+                    {
+                        throw new Exception("Not enough energy to do that task!");
+                    }
                     _energyLevel = value;
+                }
+            }
+        }
+
+        // We have to specify the backing variable for EnergyLevel because we are doing some validation with the value. 
+        private int _stressLevel;
+        private int StressLevel
+        {
+            get
+            {
+                return _stressLevel;
+            }
+            set
+            {
+                // If the incoming value is under 0, set it to 0
+                if (value < 0)
+                {
+                    _stressLevel = 0;
+                }
+                else
+                {
+                    if (value > 100)
+                    {
+                        throw new Exception("Too stressed, can't do that task!");
+                    }
+                    _stressLevel = value;
                 }
             }
         }
@@ -71,6 +101,7 @@ namespace CSharpOOP
             LastName = "Doe";
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
+            StressLevel = 0;
         }
         // A "partial" constructor takes some of the properties as arguments, and defaults the rest.
         public Student(string firstName, string lastName)
@@ -80,6 +111,7 @@ namespace CSharpOOP
             LastName = lastName;
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
+            StressLevel = 0;
         }
         // A "greedy" constructor takes all of the properties as arguments.
         // Depending on your implementation you may or may not allow private properties to be set via parameter. In this example we will not.
@@ -90,35 +122,34 @@ namespace CSharpOOP
             LastName = lastName;
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
+            StressLevel = 0;
         }
 
         // Additional methods can be defined on a class, and will operate on the instance of the object.
         public void PlayGames()
         {
             EnergyLevel -= 15;
+            StressLevel -= 25;
         }
 
         public void DoHomework()
         {
-            if (EnergyLevel < 25)
-            {
-                throw new Exception("Not enough energy to do homework!");
-            }
-            else
-            {
-                EnergyLevel -= 25;
-                // Same as EnergyLevel = EnergyLevel - 25;
-            }
+            // TODO: Fix bug where if EnergyLevel fails, StressLevel will still be modified.
+            StressLevel += 30;
+            EnergyLevel -= 25;
+            // Same as EnergyLevel = EnergyLevel - 25;
         }
 
         public void Sleep()
         {
             EnergyLevel = 100;
+            StressLevel -= 50;
         }
 
         public void Sleep(int hours)
         {
             EnergyLevel += hours * 10;
+            StressLevel -= hours * 5;
         }
 
         public string QueryEnergyLevel()
@@ -145,6 +176,32 @@ namespace CSharpOOP
                 output = "Basically a zombie here, why aren't I asleep?";
             }
 
+            return output;
+        }
+
+        public string QueryStressLevel()
+        {
+            string output;
+            if (StressLevel > 90)
+            {
+                output = "I'm super stressed!";
+            }
+            else if (StressLevel > 60)
+            {
+                output = "Getting pretty stressed, need a break soon.";
+            }
+            else if (StressLevel > 30)
+            {
+                output = "Not too stressed.";
+            }
+            else if (StressLevel > 10)
+            {
+                output = "Barely stressed at all.";
+            }
+            else
+            {
+                output = "I am zen. I am one with the universe.";
+            }
             return output;
         }
 

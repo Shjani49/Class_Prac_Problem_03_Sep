@@ -21,29 +21,45 @@ namespace CSharpOOP
 
             /* Group Task:
              
-            Add an inaccessible stress level variable, initialized at 0. 
-	            -When homework is done, increase stress by 30. 
-	            -When sleep is done, decrease stress by 50 (or 5 per hour).
-	            -When games are done, decrease stress by 25.
-	            -Add a floor to stress level of 0 (similar to ceiling on energy).
+            Add an inaccessible stress level variable, initialized at 0. *
+	            -When homework is done, increase stress by 30. *
+	            -When sleep is done, decrease stress by 50 (or 5 per hour). *
+	            -When games are done, decrease stress by 25. *
+	            -Add a floor to stress level of 0 (similar to ceiling on energy). *
 
             Add a query method for stress level and that will output a string based on its level.
 
-            Throw an exception if stress tries to go over 100.
+            Throw an exception if stress tries to go over 100. *
 
             If you finish: generate a student in main (you can clear out the stuff below this comment), and simulate 10 days for them. IE do homework and games until they're out of energy, sleep and repeat. I know it's a rather simple existence, but it'll suffice for now.
 
             */
 
-            Student myStudent = new Student();
-            Student twoStudent = new Student("Bob", "Jones");
-            myStudent.FirstName = "Jane";
 
-            Console.WriteLine(myStudent.StudentID + ": "+myStudent.FirstName + " " + myStudent.LastName);
+            Student ourStudent = new Student("Joe", "Dirt");
 
-            Console.WriteLine(twoStudent.StudentID + ": " + twoStudent.FirstName + " " + twoStudent.LastName);
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"----------\nStarting Day {i}");
+                try
+                {
+                    ourStudent.DoHomework();
+                    ourStudent.DoHomework();
+                    ourStudent.PlayGames();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                ourStudent.Sleep(7);
+                Console.WriteLine($"Energy Level: {ourStudent.QueryEnergyLevel()}\nStress Level: {ourStudent.QueryStressLevel()}");
+            }
 
-            Console.WriteLine(myStudent.QueryEnergyLevel());
+
+            
+            
+            
+
         }
     }
 }
