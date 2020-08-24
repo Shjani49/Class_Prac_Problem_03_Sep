@@ -44,9 +44,9 @@ namespace CSharpOOP
             set
             {
                 // If the incoming value is over 100, clamp it to 100.
-                if (value > 100)
+                if (value > 125)
                 {
-                    _energyLevel = 100;
+                    _energyLevel = 125;
                 }
                 else
                 {
@@ -100,8 +100,15 @@ namespace CSharpOOP
 
         public void DoHomework()
         {
-            EnergyLevel -= 25;
-            // Same as EnergyLevel = EnergyLevel - 25;
+            if (EnergyLevel < 25)
+            {
+                throw new Exception("Not enough energy to do homework!");
+            }
+            else
+            {
+                EnergyLevel -= 25;
+                // Same as EnergyLevel = EnergyLevel - 25;
+            }
         }
 
         public void Sleep()
