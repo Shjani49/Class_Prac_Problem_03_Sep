@@ -6,7 +6,24 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string output;
+            int value = 12;
+
+            /*
+            if (value % 2 == 0)
+            {
+                output = "even";
+            }
+            else
+            {
+                output = "odd";
+            }
+            */
+
+            /* target = condition ? ifTrue : ifFalse; */
+            output = value % 2 == 0 ? "even" : "odd";
+
+            Console.WriteLine(output);
         }
     }
 }
