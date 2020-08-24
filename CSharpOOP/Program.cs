@@ -20,9 +20,12 @@ namespace CSharpOOP
             // Add a play games method that will decrease energy by 15.
 
             Student myStudent = new Student();
+            Student twoStudent = new Student("Bob", "Jones");
             myStudent.FirstName = "Jane";
 
             Console.WriteLine(myStudent.StudentID + ": "+myStudent.FirstName + " " + myStudent.LastName);
+
+            Console.WriteLine(twoStudent.StudentID + ": " + twoStudent.FirstName + " " + twoStudent.LastName);
 
 
         }
