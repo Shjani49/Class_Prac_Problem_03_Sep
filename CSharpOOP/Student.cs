@@ -35,8 +35,12 @@ namespace CSharpOOP
         // Private properties can only be set in this class.
         private DateTime DateOfBirth { get; set; }
 
+        // Constructor name must be the same as the class name.
         public Student()
         {
+            StudentID = 1000;
+            FirstName = "John";
+            LastName = "Doe";
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
         }
