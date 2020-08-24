@@ -7,13 +7,15 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
             string input, output;
-            // In-Class Practice:
+            // In-Class Practice Round 2:
 
-            // If an input string contains a space, output "Multiple words.", otherwise output "One word."
-            // Make sure the input is trimmed before checking. Try to do it with one variable for input and one with output.
-            // Use a ternary operator. If you finish that early, Try to do it without any variables at all (remove the line above 
-            // these comments).
+            // Try to do it without any variables at all (remove the line above these comments).
+            // Two lines (prompt and output).
 
+            Console.Write("Please enter a string: ");
+            input = Console.ReadLine();
+
+            output = input.Trim().Contains(' ') ? "Multiple words." : "One word.";
 
             Console.WriteLine(output);
         }
