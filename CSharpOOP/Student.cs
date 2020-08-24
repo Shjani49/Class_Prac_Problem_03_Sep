@@ -40,6 +40,10 @@ namespace CSharpOOP
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
         }
+        public void PlayGames()
+        {
+            EnergyLevel -= 15;
+        }
 
         public void DoHomework()
         {
