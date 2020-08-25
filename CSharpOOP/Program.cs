@@ -44,7 +44,11 @@ namespace CSharpOOP
 
             Console.WriteLine($"The class has the classcode {historyClass.ClassCode}, is called {historyClass.ClassName} and is being taught by {historyClass.ClassTeacher.FirstName} {historyClass.ClassTeacher.LastName}.");
 
-            
+
+            StaticExample.EchoSomethingOut();
+
+
+            Teacher.Test();
 
         }
     }

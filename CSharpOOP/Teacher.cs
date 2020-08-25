@@ -60,6 +60,11 @@ namespace CSharpOOP
            
         }
 
+        public static void Test()
+        {
+            Console.WriteLine("Teachers are responsible for instructing students in classes.");
+        }
+
         public Teacher()
         {
             StaffID = 1000;
