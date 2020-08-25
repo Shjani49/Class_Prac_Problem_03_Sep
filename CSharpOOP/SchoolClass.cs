@@ -51,5 +51,12 @@ namespace CSharpOOP
             ClassName = "Introduction to School Stuff";
             MaxStudents = 10;
         }
+
+        public SchoolClass(string classCode, string className)
+        {
+            ClassCode = classCode;
+            ClassName = className;
+            MaxStudents = 10;
+        }
     }
 }
