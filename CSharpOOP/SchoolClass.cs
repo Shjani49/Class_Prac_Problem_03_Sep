@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpOOP
 {
-    class SchoolClass
+    public class SchoolClass
     {
         /*
          Create Properties for:
@@ -12,5 +12,18 @@ namespace CSharpOOP
          -Class Name
          -Maximum Students (private)
         */
+        public string ClassCode { get; set; }
+        public string ClassName { get; set; }
+        private int MaxStudents { get; set; }
+
+        public Teacher ClassTeacher { get; set; }
+
+        public SchoolClass()
+        {
+            ClassCode = "CLASS101";
+            ClassName = "Introduction to School Stuff";
+            MaxStudents = 10;
+            ClassTeacher = new Teacher();
+        }
     }
 }
