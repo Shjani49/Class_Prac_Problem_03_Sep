@@ -8,47 +8,58 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-            // Assigning properties with individual statements.
-            SchoolClass historyClass = new SchoolClass();
-            historyClass.ClassCode = "HIST101";
-            historyClass.ClassName = "Introduction to History";
+            // Stacks are "Last-In, First-Out"
+            Stack<string> myStack = new Stack<string>();
 
-            // Rather than assigning props as multiple statements, you can assign them during construction using an initializer list.
-            SchoolClass englishClass = new SchoolClass()
+            // Push means "add to".
+            myStack.Push("First String");
+            myStack.Push("Second String");
+            myStack.Push("Third String");
+
+            // Pop means "take the next" (return it, and remove it).
+            Console.WriteLine(myStack.Pop());
+
+            // Queues are "First-In, First-Out"
+            // Enqueue and dequeue mean the same thing as push and pop respectively, except dequeue will remove from the front instead of the end.
+            Queue<string> myQueue = new Queue<string>();
+
+            myQueue.Enqueue("First String");
+            myQueue.Enqueue("Second String");
+            myQueue.Enqueue("Third String");
+
+            Console.WriteLine(myQueue.Dequeue());
+
+            // Dictionaries are sort of like lists, except rather than indexed by an integer, they can be indexed by other things.
+            string testString = "TechCareers teach code";
+
+            // Create a dictionary indexed by characters (instead of ints like everything else).
+            Dictionary<char, int> charCounts = new Dictionary<char, int>();
+            for (char i = 'a'; i <= 'z'; i++)
             {
-                ClassCode = "ENGL101",
-                ClassName = "Introduction to English"
-            };
+                charCounts.Add(i, 0);
+            }
 
-            // Using a constructor.
-            SchoolClass programmingClass = new SchoolClass("CPRG101", "Introduction to Programming");
-
-            Teacher sueTeacher = new Teacher()
+            // For each character in our test string:
+            foreach(char character in testString)
             {
-                StaffID = 2050,
-                FirstName = "Sue",
-                LastName = "Smith"
-            };
-            Teacher joeTeacher = new Teacher()
-            {
-                StaffID = 2050,
-                FirstName = "Joe",
-                LastName = "Testificate"
-            };
+                if (charCounts.ContainsKey(char.ToLower(character)))
+                {
+                    // Increment that character count.
+                    charCounts[char.ToLower(character)]++;
+                }
+                
+            }
 
-            List<SchoolClass> temp = new List<SchoolClass>();
-            temp.AddRange(joeTeacher.ClassesTaught.ToArray());
-            temp.Add(historyClass);
-            joeTeacher.ClassesTaught = temp;
+            // You can index dictionaries by ints as well, if you don't want to start numbering at 0.
+            Dictionary<int, string> students = new Dictionary<int, string>();
+            students.Add(1001, "John Doe");
+            students.Add(1002, "Jane Doe");
 
+            Console.WriteLine(students[1002]);
 
-            Console.WriteLine($"The class has the classcode {historyClass.ClassCode}, is called {historyClass.ClassName} and is being taught by {historyClass.ClassTeacher.FirstName} {historyClass.ClassTeacher.LastName}.");
+            // Displays the value associated with the key 's'.
+            Console.WriteLine(charCounts['s']);
 
-
-            StaticExample.EchoSomethingOut();
-
-
-            Teacher.Test();
 
         }
     }
