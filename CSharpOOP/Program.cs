@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CSharpOOP
@@ -35,21 +36,10 @@ namespace CSharpOOP
                 LastName = "Testificate"
             };
 
-            // For this test run:
-            // Old teacher will be NULL
-            // New teacher will be Sue
-            // "this" will be History class
-            historyClass.ClassTeacher = sueTeacher;
-
-            // For this test run:
-            // Old teacher will be Sue
-            // New teacher will be Joe
-            // "this" will be History class
-            historyClass.ClassTeacher = joeTeacher;
-
-
-            englishClass.ClassTeacher = joeTeacher;
-            programmingClass.ClassTeacher = joeTeacher;
+            List<SchoolClass> temp = new List<SchoolClass>();
+            temp.AddRange(joeTeacher.ClassesTaught.ToArray());
+            temp.Add(historyClass);
+            joeTeacher.ClassesTaught = temp;
 
 
             Console.WriteLine($"The class has the classcode {historyClass.ClassCode}, is called {historyClass.ClassName} and is being taught by {historyClass.ClassTeacher.FirstName} {historyClass.ClassTeacher.LastName}.");
