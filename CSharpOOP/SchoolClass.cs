@@ -6,12 +6,6 @@ namespace CSharpOOP
 {
     public class SchoolClass
     {
-        /*
-         Create Properties for:
-         -Class Code
-         -Class Name
-         -Maximum Students (private)
-        */
         public string ClassCode { get; set; }
         public string ClassName { get; set; }
         private int MaxStudents { get; set; }

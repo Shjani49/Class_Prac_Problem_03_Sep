@@ -6,13 +6,6 @@ namespace CSharpOOP
 {
     public class Teacher
     {
-        /*
-         Create Properties for:
-         -First Name
-         -Last Name
-         -Staff ID
-         -Date of Birth (private)
-        */
         public int StaffID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
