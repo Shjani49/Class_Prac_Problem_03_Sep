@@ -22,20 +22,59 @@ namespace CSharpOOP
 
     */
 
+        // Done
         public string Brand { get; set; }
+        // Done
         public string InkColor { get; set; }
-        public double InkLevel { get; set; }
+
+        private double _inkLevel;
+        public double InkLevel { 
+            get
+            {
+                // TODO: Round before return.
+                return _inkLevel;
+            }
+            private set
+            {
+                // If the incoming value is over 100, set the variable to 100 instead.
+                if (value > 100)
+                {
+                    _inkLevel = 100;
+                }
+                else
+                {
+                    // If the incoming value is below 0, throw an exception.
+                    if (value < 0)
+                    {
+                        throw new Exception("Not enough ink to do that writing!");
+                    }
+                    _inkLevel = value;
+                }
+            }
+        }
+        // Done
         public int MaxInk { get; set; }
+        // Done
         public bool HasLid { get; set; }
 
         public void Write()
         {
+            // 0.5ml per 10 characters.
+            double percentagePerCharacter = (0.05 / MaxInk) * 100;
 
+            InkLevel -= percentagePerCharacter * 10; 
         }
 
         public void Write(int characterCount)
         {
+            double percentagePerCharacter = (0.05 / MaxInk) * 100;
 
+            InkLevel -= percentagePerCharacter * characterCount;
+        }
+
+        public Pen()
+        {
+            InkLevel = 100;
         }
     }
 }

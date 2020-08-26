@@ -8,44 +8,47 @@ namespace CSharpOOP
     {
         static void Main(string[] args)
         {
-            // Assigning properties with individual statements.
-            SchoolClass historyClass = new SchoolClass();
-            historyClass.ClassCode = "HIST101";
-            historyClass.ClassName = "Introduction to History";
-
-            // Rather than assigning props as multiple statements, you can assign them during construction using an initializer list.
-            SchoolClass englishClass = new SchoolClass()
+            Pen redPen = new Pen()
             {
-                ClassCode = "ENGL101",
-                ClassName = "Introduction to English"
+                Brand = "Bic",
+                InkColor = "Red",
+                HasLid = true,
+                MaxInk = 1
+            };
+            Pen bluePen = new Pen()
+            {
+                Brand = "Bic",
+                InkColor = "Blue",
+                HasLid = false,
+                MaxInk = 10
+            };
+            Pen blackPen = new Pen()
+            {
+                Brand = "Pilot",
+                InkColor = "Black",
+                HasLid = false,
+                MaxInk = 150
             };
 
-            // Using a constructor.
-            SchoolClass programmingClass = new SchoolClass("CPRG101", "Introduction to Programming");
+            TestPen(redPen);
+            TestPen(bluePen);
+            TestPen(blackPen);
 
-            Teacher sueTeacher = new Teacher()
+        }
+        public static void TestPen (Pen toTest)
+        {
+            Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            toTest.Write();
+            Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            try
             {
-                StaffID = 2050,
-                FirstName = "Sue",
-                LastName = "Smith"
-            };
-            Teacher joeTeacher = new Teacher()
+                toTest.Write(50);
+            }
+            catch (Exception ex)
             {
-                StaffID = 2050,
-                FirstName = "Joe",
-                LastName = "Testificate"
-            };
-
-            List<SchoolClass> temp = new List<SchoolClass>();
-            temp.AddRange(joeTeacher.ClassesTaught.ToArray());
-            temp.Add(historyClass);
-            joeTeacher.ClassesTaught = temp;
-
-
-            Console.WriteLine($"The class has the classcode {historyClass.ClassCode}, is called {historyClass.ClassName} and is being taught by {historyClass.ClassTeacher.FirstName} {historyClass.ClassTeacher.LastName}.");
-
-            
-
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
         }
     }
 }
