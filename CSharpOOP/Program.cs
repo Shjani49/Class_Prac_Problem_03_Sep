@@ -37,6 +37,8 @@ namespace CSharpOOP
                 MaxInk = 110
             };
 
+            
+
             // 100, 50, exc (then 50 again)
             TestPen(redPen);
             // 100, 95, 70
@@ -49,9 +51,9 @@ namespace CSharpOOP
         }
         public static void TestPen (Pen toTest)
         {
-            Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            Console.WriteLine(toTest);
             toTest.Write();
-            Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            Console.WriteLine(toTest);
             try
             {
                 toTest.Write(50);
@@ -60,7 +62,8 @@ namespace CSharpOOP
             {
                 Console.WriteLine(ex.Message);
             }
-            Console.WriteLine($"This is a {toTest.Brand} {toTest.InkColor} pen which has {toTest.InkLevel}% of its ink remaining.");
+            Console.WriteLine(toTest);
+
         }
     }
 }
