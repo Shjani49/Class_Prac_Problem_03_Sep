@@ -31,8 +31,8 @@ namespace CSharpOOP
         public double InkLevel { 
             get
             {
-                // TODO: Round before return.
-                return _inkLevel;
+                // Borrowed math from Sai
+                return Math.Round(_inkLevel / 5.0) * 5;
             }
             private set
             {
@@ -59,22 +59,30 @@ namespace CSharpOOP
 
         public void Write()
         {
-            // 0.5ml per 10 characters.
-            double percentagePerCharacter = (0.05 / MaxInk) * 100;
-
-            InkLevel -= percentagePerCharacter * 10; 
+            Write(10);
         }
 
         public void Write(int characterCount)
         {
             double percentagePerCharacter = (0.05 / MaxInk) * 100;
 
-            InkLevel -= percentagePerCharacter * characterCount;
+            // Before: 
+            // InkLevel -= percentagePerCharacter * characterCount
+            // This is a problem because it calls the getter, behind shorthand for:
+            // InkLevel = InkLevel - (percentagePerCharacter * characterCount)
+            // Our getter does rounding, so it creates invalid results.
+            // To get around this, on the getting part, we go directly to the backing variable.
+            // But we keep the property in the setting part so that we don't bypass our validation.
+            InkLevel /* <- Setting */ = _inkLevel /* <- Getting */ - percentagePerCharacter * characterCount;
         }
 
         public Pen()
         {
+            Brand = "Pilot";
+            InkColor = "Black";
             InkLevel = 100;
+            MaxInk = 250;
+            HasLid = false;
         }
     }
 }

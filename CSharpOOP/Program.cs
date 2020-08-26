@@ -29,10 +29,22 @@ namespace CSharpOOP
                 HasLid = false,
                 MaxInk = 150
             };
+            Pen greenPen = new Pen()
+            {
+                Brand = "Sharpie",
+                InkColor = "Green",
+                HasLid = true,
+                MaxInk = 110
+            };
 
+            // 100, 50, exc (then 50 again)
             TestPen(redPen);
+            // 100, 95, 70
             TestPen(bluePen);
+            // 100, 99.666666, 98
             TestPen(blackPen);
+            // 100, 99.5454545454, 97.272727272727
+            TestPen(greenPen);
 
         }
         public static void TestPen (Pen toTest)
