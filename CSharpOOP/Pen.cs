@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpOOP
 {
-    class Pen
+    public class Pen
     {
         /*
          

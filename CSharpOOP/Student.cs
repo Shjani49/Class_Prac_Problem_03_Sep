@@ -34,6 +34,8 @@ namespace CSharpOOP
             }
         }
 
+        public Pen WritingInstrument { get; set; }
+
         // We have to specify the backing variable for EnergyLevel because we are doing some validation with the value. 
         private int _energyLevel;
         private int EnergyLevel { 
@@ -102,6 +104,7 @@ namespace CSharpOOP
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
             StressLevel = 0;
+            WritingInstrument = new Pen();
         }
         // A "partial" constructor takes some of the properties as arguments, and defaults the rest.
         public Student(string firstName, string lastName)
@@ -112,6 +115,7 @@ namespace CSharpOOP
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
             StressLevel = 0;
+            WritingInstrument = new Pen();
         }
         // A "greedy" constructor takes all of the properties as arguments.
         // Depending on your implementation you may or may not allow private properties to be set via parameter. In this example we will not.
@@ -123,6 +127,7 @@ namespace CSharpOOP
             DateOfBirth = DateTime.Now;
             EnergyLevel = 100;
             StressLevel = 0;
+            WritingInstrument = new Pen();
         }
 
         // Additional methods can be defined on a class, and will operate on the instance of the object.
@@ -142,6 +147,7 @@ namespace CSharpOOP
                 // Try to set the properties to the new ones.
                 EnergyLevel -= 25;
                 StressLevel += 30;
+                WritingInstrument.Write(200);
             }
             catch (Exception ex)
             {
