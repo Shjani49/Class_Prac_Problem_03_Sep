@@ -9,6 +9,7 @@ namespace CSharpOOP
         static void Main(string[] args)
         {
             Student myStudent = new Student();
+            myStudent.PendingHomework.Push(new Homework() {Complexity = 3});
             Console.WriteLine(myStudent.WritingInstrument);
             myStudent.DoHomework();
             Console.WriteLine(myStudent.WritingInstrument);

@@ -44,6 +44,8 @@ namespace CSharpOOP
             }
         }
 
+        public Stack<Homework> PendingHomework { get; set; }
+
         public Pen WritingInstrument { get; set; }
 
         // We have to specify the backing variable for EnergyLevel because we are doing some validation with the value. 
@@ -115,6 +117,7 @@ namespace CSharpOOP
             EnergyLevel = 100;
             StressLevel = 0;
             WritingInstrument = new Pen();
+            PendingHomework = new Stack<Homework>();
         }
         // A "partial" constructor takes some of the properties as arguments, and defaults the rest.
         public Student(string firstName, string lastName)
@@ -126,6 +129,7 @@ namespace CSharpOOP
             EnergyLevel = 100;
             StressLevel = 0;
             WritingInstrument = new Pen();
+            PendingHomework = new Stack<Homework>();
         }
         // A "greedy" constructor takes all of the properties as arguments.
         // Depending on your implementation you may or may not allow private properties to be set via parameter. In this example we will not.
@@ -138,6 +142,7 @@ namespace CSharpOOP
             EnergyLevel = 100;
             StressLevel = 0;
             WritingInstrument = new Pen();
+            PendingHomework = new Stack<Homework>();
         }
 
         // Additional methods can be defined on a class, and will operate on the instance of the object.
@@ -155,9 +160,14 @@ namespace CSharpOOP
             try
             {
                 // Try to set the properties to the new ones.
-                EnergyLevel -= 25;
-                StressLevel += 30;
-                WritingInstrument.Write(200);
+                // If we pop first, then we will be missing the item if anything fails.
+                // If we pop in each step, we'll be getting a new item each time.
+                // So we peek, which shows the top item, without removing it. Kind of like flipping the top card on a deck.
+                EnergyLevel -= 10*PendingHomework.Peek().Complexity;
+                StressLevel += 5*PendingHomework.Peek().Complexity;
+                WritingInstrument.Write(100*PendingHomework.Peek().Complexity);
+                // Once we're sure everything is good, we pop the top item off.
+                PendingHomework.Pop();
             }
             catch (Exception ex)
             {
