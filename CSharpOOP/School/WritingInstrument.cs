@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpOOP.School
 {
-    public class WritingInstrument
+    abstract public class WritingInstrument
     {
         /*
             WritingInstrument should have a Write() method that MUST be overridden by its children.
@@ -16,5 +16,11 @@ namespace CSharpOOP.School
 
             Set the WritingInstrument property in Student to be polymorphic.
          */
+        public string Brand { get; set; }
+        public void Write()
+        {
+            Write(10);
+        }
+        abstract public void Write(int charcterCount);
     }
 }

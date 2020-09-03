@@ -4,9 +4,9 @@ using System.Text;
 
 namespace CSharpOOP.School
 {
-    public class Pen 
+    public class Pen : WritingInstrument
     {
-        public string Brand { get; set; }
+      
         public string InkColor { get; set; }
 
         private double _inkLevel;
@@ -39,12 +39,9 @@ namespace CSharpOOP.School
         // Done
         public bool HasLid { get; set; }
 
-        public void Write()
-        {
-            Write(10);
-        }
+        
 
-        public void Write(int characterCount)
+        public override void Write(int characterCount)
         {
             double percentagePerCharacter = (0.05 / MaxInk) * 100;
 

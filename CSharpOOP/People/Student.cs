@@ -12,7 +12,7 @@ namespace CSharpOOP.People
 
         public Stack<Homework> PendingHomework { get; set; }
 
-        public Pen WritingInstrument { get; set; }
+        public WritingInstrument WritingInstrument { get; set; }
 
         // We have to specify the backing variable for EnergyLevel because we are doing some validation with the value. 
         private int _energyLevel;
