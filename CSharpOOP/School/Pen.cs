@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharpOOP.School
 {
-    public class Pen
+    public class Pen 
     {
         public string Brand { get; set; }
         public string InkColor { get; set; }
