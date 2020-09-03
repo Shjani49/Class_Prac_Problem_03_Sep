@@ -1,48 +1,14 @@
-﻿using System;
+﻿using CSharpOOP.School;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CSharpOOP
+namespace CSharpOOP.People
 {
-    public class Student
+    public class Student : Person
     {
-        /*
-         Practice Task:
-
-        Add a "Pending Homework" property that is a stack of homework objects. 
-        The homework class will have a complexity property of 1-5. Please validate and clamp to 1 if less than 1, and 5 if greater than 5.
-        Modify the DoHomework method so that it will take the top homework off the stack, and the number of characters being written will be the complexity times 100. Energy level will decrease by complexity times 10, and stress will increase by complexity times 5.
-
-        */
-
-
         // Public properties can be set externally.
         public int StudentID { get; set; }
-
-        // A default property auto-generates the backing variable as a private variable of the same type.
-        // The getter and setter are also automatically generated.
-        public string FirstName { get; set; }
-        // The above auto-generated property can be likened to the following:
-        private string _lastName;
-        public string LastName { 
-            get // Output of the value.
-            {
-                // The "getter" is called whenever the user tries to use the property.
-                // Example: writing it out, assigning another variable to it, etc.
-                // (string myVar = student.LastName)
-                // Do any formatting of values here.
-                return _lastName;
-                
-            }
-            set // Input to the value.
-            {
-                // The "setter" is called whenever the user tries to assign the property.
-                // 'value' is a keyword that represents what the user is trying to assign thereto.
-                // Do any validation of values here.
-                _lastName = value;
-                
-            }
-        }
 
         public Stack<Homework> PendingHomework { get; set; }
 
@@ -99,8 +65,7 @@ namespace CSharpOOP
             }
         }
 
-        // Private properties can only be set in this class.
-        private DateTime DateOfBirth { get; set; }
+
 
         // Constructor name must be the same as the class name.
         // Constructors are used to create an instance of a class.

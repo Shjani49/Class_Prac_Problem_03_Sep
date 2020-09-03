@@ -2,22 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CSharpOOP
+namespace CSharpOOP.School
 {
     public class Pen
     {
-        /*
-         
-        
-         Research and implement a ToString() override that will output a string in the format: “This is a red Bic pen without a lid with approximately 55% of the ink remaining.” Use at least one ternary statement.
-
-        Implement the Pen class into our student-teacher-class example, perhaps have a pen object required to do homework.
-
-    */
-
-        // Done
         public string Brand { get; set; }
-        // Done
         public string InkColor { get; set; }
 
         private double _inkLevel;

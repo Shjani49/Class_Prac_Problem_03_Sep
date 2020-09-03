@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CSharpOOP
+namespace CSharpOOP.School
 {
     public class Homework
     {
